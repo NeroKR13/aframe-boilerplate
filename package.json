@@ -19,5 +19,9 @@
     "aframe-scene",
     "webvr",
     "vr"
-  ]
+  ],
+  "dependencies": {
+    "aframe": "^0.5.0",
+    "aframe-ui-modal-component": "^1.0.2"
+  }
 }
