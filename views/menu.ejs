@@ -1,0 +1,65 @@
+<%- include('header') %>
+
+<!-- TODO:
+* Set different rotation for each panorama, change on selection
+* Set scene title text above menu, change on selection
+* Include points of interest in scene
+* Implement gaze selection on POI's and update modal content on selection
+* Show modal on POI gaze selection and hide on cursor mouseleave event
+-->
+
+<a-scene>
+  <a-assets timeout="5000">
+    <% for (var i = 0; i < scenes.length; i++) { %>
+    <img id="index_<%= i %>" crossorigin="anonymous" src="<%= scenes[i].panoramaUrl %>">
+    <img id="index_<%= i %>-thumb" crossorigin="anonymous" src="<%= scenes[i].thumbnailUrl %>">
+    <% } %>
+    <audio id="click-sound" crossorigin="anonymous" src="/audio/click.ogg" preload="auto"></audio>
+
+    <!-- Image link template to be reused. -->
+    <script id="link" type="text/html">
+      <a-entity class="link"
+        geometry="primitive: plane; height: 1; width: 1"
+        material="shader: flat; src: ${thumb}"
+        event-set__1="_event: mousedown; scale: 1 1 1"
+        event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+        event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+        event-set__4="_event: mouseleave; scale: 1 1 1"
+        set-image="on: click; target: #image-360; src: ${src}"
+        sound="on: click; src: #click-sound"></a-entity>
+    </script>
+  </a-assets>
+
+  <!-- 360-degree image. -->
+  <a-sky id="image-360" radius="10" src="#index_0" rotation="0 60 0"></a-sky>
+
+  <!-- Image links. -->
+  <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
+    <% for (var i = 0; i < scenes.length; i++) { %>
+    <a-entity template="src: #link" data-src="#index_<%= i %>" data-thumb="#index_<%= i %>-thumb"></a-entity>
+    <% } %>
+  </a-entity>
+
+  <!-- Re-usable Modal -->
+  <a-entity ui-modal visible="false">
+    <a-plane material="shader: html; target: #modalHTMLContainer; fps: 10; ratio: width; transparent: true; side: double;" position="0 0 3"></a-plane>
+  </a-entity>
+
+  <!-- Camera + cursor. -->
+  <a-entity camera look-controls>
+    <a-cursor id="cursor"
+      animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+      animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+      event-set__1="_event: mouseenter; color: red"
+      event-set__2="_event: mouseleave; color: blue"
+      fuse="true"
+      raycaster="objects: .link"></a-cursor>
+  </a-entity>
+</a-scene>
+
+<!-- Re-usable modal content -->
+<div style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden">
+  <div id="modalHTMLContainer" style="background: #111; opacity: 0.85; color: #fff; font-family: Arial, sans-serif; font-size: 24px; line-height: 1.4em; padding: 20px; width: 512px; height: auto; min-height: 512px;">Loading...</div>
+</div>
+
+<%- include('footer') %>

@@ -1,27 +1,48 @@
 {
-  "name": "aframe-hello-world-boilerplate",
-  "description": "Boilerplate with A-Frame's 'Hello, World!' of WebVR.",
-  "version": "0.3.0",
-  "license": "MIT",
+  "name": "nodejs-sdk",
+  "version": "2.1.0",
+  "private": true,
   "scripts": {
-    "start": "budo --live --verbose --port 3000 --open",
-    "deploy": "ghpages",
-    "ghpages": "ghpages"
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "eslint *.js",
+    "test": "node -c *.js"
   },
-  "devDependencies": {
-    "budo": "^7.0.0",
-    "ghpages": "0.0.3"
-  },
-  "keywords": [
-    "aframe",
-    "aframe-example",
-    "aframe-boilerplate",
-    "aframe-scene",
-    "webvr",
-    "vr"
-  ],
   "dependencies": {
     "aframe": "^0.5.0",
-    "aframe-ui-modal-component": "^1.0.2"
+    "aframe-animation-component": "^3.2.5",
+    "aframe-event-set-component": "^3.0.3",
+    "aframe-html-shader": "^0.2.0",
+    "aframe-layout-component": "^4.2.0",
+    "aframe-template-component": "^3.2.1",
+    "aframe-ui-modal-component": "^1.0.2",
+    "body-parser": "~1.17.2",
+    "cookies": "~0.7.0",
+    "debug": "~2.6.8",
+    "ejs": "^2.5.6",
+    "errorhandler": "~1.5.0",
+    "express": "~4.15.3",
+    "install": "^0.10.1",
+    "method-override": "~2.3.9",
+    "morgan": "~1.8.2",
+    "npm": "^5.0.4",
+    "prismic-dom": "~1.2.5",
+    "prismic-javascript": "~1.1.2",
+    "request": "~2.81.0",
+    "serve-favicon": "~2.4.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/prismicio/nodejs-sdk.git"
+  },
+  "devDependencies": {
+    "babel-eslint": "~7.2.3",
+    "eslint": "~3.19.0",
+    "eslint-config-airbnb-base": "~11.2.0",
+    "eslint-plugin-import": "~2.3.0"
+  },
+  "engines": {
+    "node": ">=4.8.1",
+    "npm": ">=2.15.11"
   }
 }
