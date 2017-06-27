@@ -2,6 +2,8 @@
 My Codetrotters Intro to JavaScript final project.
 
 ### Overview
+An educational 360 gallery of cool places in Puerto Rico, made with WebVR.
+
 Explore Puerto Rico in 360. From key touristic places, to hidden gems of our nature and history.
 
 ### Requirements
