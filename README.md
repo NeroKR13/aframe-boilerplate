@@ -40,7 +40,7 @@ Push your code to heroku:
 $ git push heroku master
 ```
 
-Ensure you have at least one node running:
+Ensure you have at least one node running: (NodeJS Server)
 
 ```
 $ heroku ps:scale web=1
