@@ -22,13 +22,13 @@ Explore Puerto Rico in 360. From key touristic places, to hidden gems of our nat
 
 An easy way to deploy your NodeJS application is to use [Heroku](http://www.heroku.com). Just follow these few simple steps once you have successfully [signed up](https://id.heroku.com/signup/www-header) and [installed the Heroku toolbelt](https://toolbelt.heroku.com/):
 
-Create a `Procfile` file at your application root, to declare the server command:
+Create a `Procfile` file at your application root (project's folder), to declare the server command:
 
 ```
 web: node app.js
 ```
 
-Create a new Heroku application
+Create a new Heroku application (still inside the application root / project folder):
 
 ```
 $ heroku create
