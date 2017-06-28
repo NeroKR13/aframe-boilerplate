@@ -6,7 +6,12 @@ An educational 360 gallery of cool places in Puerto Rico, made with WebVR.
 
 Explore Puerto Rico in 360. From key touristic places, to hidden gems of our nature and history.
 
-### Requirements
+### Technologies
+  * A-Frame (WebVR) core library and components for the VR experience
+  * Prismic.io as headless CMS for content management and servicing
+  * Node.js + Express.js server to render views with data and media serviced by Prismic.io repository
+
+### User Requirements
   * A modern, up-to-date web browser
   * VR headset recommended for best experience. Google Cardboard supported. No controller necessary.
 
