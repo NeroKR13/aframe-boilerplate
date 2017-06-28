@@ -9,11 +9,15 @@ Explore Puerto Rico in 360. From key touristic places, to hidden gems of our nat
 ### Technologies
   * A-Frame (WebVR) core library and components for the VR experience
   * Prismic.io as headless CMS for content management and servicing
-  * Node.js + Express.js server to render views with data and media serviced by Prismic.io repository
+  * Node.js + Express.js server to render the VR scenes (EJS templates) with data and media serviced by Prismic.io repository
+  * Hosted on Heroku
 
 ### User Requirements
   * A modern, up-to-date web browser
   * VR headset recommended for best experience. Google Cardboard supported. No controller necessary.
+
+### Demo
+Visit http://gentle-shore-30705.herokuapp.com/ from your PC or smartphone
 
 ### To-Do's
   * Set different rotation for each panorama, change on selection
@@ -23,7 +27,8 @@ Explore Puerto Rico in 360. From key touristic places, to hidden gems of our nat
   * Show modal on POI gaze selection and hide on cursor mouseleave event
   * Deploy application to Heroku
 
-#### Deploy your NodeJS application
+### Deployment
+#### Deploying NodeJS application to Heroku
 
 An easy way to deploy your NodeJS application is to use [Heroku](http://www.heroku.com). Just follow these few simple steps once you have successfully [signed up](https://id.heroku.com/signup/www-header) and [installed the Heroku toolbelt](https://toolbelt.heroku.com/):
 
