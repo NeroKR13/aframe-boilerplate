@@ -34,7 +34,7 @@
   <a-sky id="image-360" radius="10" src="#index_0" rotation="0 60 0"></a-sky>
 
   <!-- Image links. -->
-  <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
+  <a-entity id="links" layout="type: box; columns: 3; margin: 1.5" position="-2 1.75 -3.8" rotation="30 0 0">
     <% for (var i = 0; i < scenes.length; i++) { %>
     <a-entity template="src: #link" data-src="#index_<%= i %>" data-thumb="#index_<%= i %>-thumb"></a-entity>
     <% } %>
