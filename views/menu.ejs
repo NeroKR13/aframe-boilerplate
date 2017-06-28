@@ -40,10 +40,21 @@
     <% } %>
   </a-entity>
 
-  <!-- Re-usable Modal -->
-  <a-entity ui-modal visible="false">
-    <a-plane material="shader: html; target: #modalHTMLContainer; fps: 10; ratio: width; transparent: true; side: double;" position="0 0 3"></a-plane>
+  <!-- Points of Interest. -->
+  <a-entity id="pois">
+    <!-- <% for (var i = 0; i < scenes.length; i++) { %>
+      <% for (var j = 0; j < scenes[i].pois.length; j++) { %>
+        <a-box color="white" depth="2" height="4" width="0.5"
+          position="<%= scenes[i].pois[j].xpos %> <%= scenes[i].pois[j].ypos %> <%= scenes[i].pois[j].zpos %>">
+        </a-box>
+      <% } %>
+    <% } %> -->
   </a-entity>
+
+  <!-- Re-usable Modal -->
+  <!-- <a-entity ui-modal visible="false">
+    <a-plane material="shader: html; target: #modalHTMLContainer; fps: 10; ratio: width; transparent: true; side: double;" position="0 0 3"></a-plane>
+  </a-entity> -->
 
   <!-- Camera + cursor. -->
   <a-entity camera look-controls>
