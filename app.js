@@ -68,21 +68,30 @@ app.get('/', (req, res, next) => {
    {
      orderings : '[my.scene.title]'
    }).then((response) => {
-     console.log(JSON.stringify(response.results));
      var data = [];
      response.results.forEach(function(result){
+       var pois = [];
+       result.data.poi.forEach(function(poi){
+         pois.push({
+           title: (poi.title[0] && poi.title[0].text) || '',
+           description: (poi.description[0] && poi.description[0].text) || '',
+           xpos: poi.xpos || 0,
+           ypos: poi.ypos || 0,
+           zpos: poi.zpos || 0
+         });
+       });
        data.push({
          id: result.id,
          uid: result.uid,
-         title: result.data.title[0].text || '',
-         descriptionHTML: result.data.description || '',
-         pois: [],
+         title: (result.data.title[0] && result.data.title[0].text) || '',
+         descriptionHTML: (result.data.description[0] && result.data.description[0].text) || '',
+         pois: pois,
          panoramaUrl: result.data['360_photo'].url || '',
          thumbnailUrl: result.data['360_photo'].Thumbnail.url || '',
          startPosition: {
-           x: 0,
-           y: 0,
-           z: 0
+           x: result.data.xrot || 0,
+           y: result.data.yrot || 0,
+           z: result.data.zrot || 0
          }
        });
      });
